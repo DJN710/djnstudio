@@ -84,7 +84,7 @@
           <path d="M24 4V44M4 14L44 14M4 34L44 34" stroke="#b8956a" stroke-width=".5" opacity=".4"/>
           <circle cx="24" cy="24" r="4" stroke="#b8956a" stroke-width="1" fill="none"/>
         </svg>
-        <h3 class="service-name">3D Modelování</h3>
+        <h2 class="service-name">3D Modelování</h2>
         <p class="service-desc">Precizní 3D produkty pro Váš domov, firmu nebo akci. Od konceptu po finální výsledek — s důrazem na kvalitu materiálů a zpracování.</p>
         <a href="#contact" class="service-link">Zjistit více</a>
       </div>
@@ -95,7 +95,7 @@
           <ellipse cx="24" cy="20" rx="8" ry="5" stroke="#b8956a" stroke-width=".5" opacity=".4"/>
           <path d="M24 8V40" stroke="#b8956a" stroke-width=".5" opacity=".3"/>
         </svg>
-        <h3 class="service-name">Designer nábytek a doplňky</h3>
+        <h2 class="service-name">Designer nábytek a doplňky</h2>
         <p class="service-desc">Vytváříme designer nábytek na míru pro Váš domov. Od stolů po zrcadla, věšáky, vázy a plno dalšího.</p>
         <a href="#contact" class="service-link">Zjistit více</a>
       </div>
@@ -107,7 +107,7 @@
           <path d="M8 32V40M40 32V40" stroke="#b8956a" stroke-width=".8" opacity=".5"/>
           <path d="M14 40H34" stroke="#b8956a" stroke-width=".5" opacity=".4"/>
         </svg>
-        <h3 class="service-name">Stage Engineering</h3>
+        <h2 class="service-name">Stage Engineering</h2>
         <p class="service-desc">3D Objekty přesně navržené pro Vaší akci podle energie a tématiky eventu. Představivosti se meze nekladou.</p>
         <a href="#contact" class="service-link">Zjistit více</a>
       </div>
@@ -115,27 +115,30 @@
   </section>
 
   <!-- WORK -->
-  <section id="work" style="position:relative;overflow:hidden;">
+  <div id="work" style="position:relative;overflow:hidden;">
     <svg id="topo-work" class="topo-overlay" preserveAspectRatio="xMidYMid slice"></svg>
     <div class="work-head reveal">
       <div><div class="section-label">Portfolio</div></div>
       <a href="#contact" class="work-all">Celé portfolio</a>
     </div>
     <div class="work-grid">
-      <div class="work-card">
+      <div class="work-card work-card--clickable" onclick="openGallery('salvinia')">
         <div class="work-bg"></div>
-        <div class="work-placeholder">○</div>
+        <img class="work-photo" src="images/salvinia/cover.png" alt="SALVINIA" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
         <div class="work-info">
           <p class="work-tag">3D Modelování</p>
           <p class="work-name">SALVINIA</p>
+          <span class="work-gallery-hint">Zobrazit více →</span>
         </div>
       </div>
-      <div class="work-card">
+      <div class="work-card work-card--clickable" onclick="openGallery('flowervase')">
         <div class="work-bg"></div>
+        <img class="work-photo" src="images/flowervase/cover.png" alt="Flower Vase" onload="this.classList.add('loaded')" onerror="this.style.display='none'">
         <div class="work-placeholder">◇</div>
         <div class="work-info">
-          <p class="work-tag">COMING SOON</p>
-          <p class="work-name">XXX</p>
+          <p class="work-tag">Designer Nábytek</p>
+          <p class="work-name">Flower Vase</p>
+          <span class="work-gallery-hint">Zobrazit více →</span>
         </div>
       </div>
       <div class="work-card">
@@ -163,10 +166,10 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- PHILOSOPHY -->
-  <section id="philosophy" style="position:relative;overflow:hidden;">
+  <div id="philosophy" style="position:relative;overflow:hidden;">
     <svg id="topo-phil" class="topo-overlay" preserveAspectRatio="xMidYMid slice"></svg>
     <div class="phil-line"></div>
     <p class="phil-quote reveal">
@@ -174,7 +177,7 @@
       Každý projekt vyžaduje svůj čas."
     </p>
     <div class="phil-line"></div>
-  </section>
+  </div>
 
   <!-- CONTACT -->
   <section id="contact" style="position:relative;overflow:hidden;">
@@ -183,10 +186,26 @@
     <h2 class="contact-title reveal">
       Zkontaktujte<br><em>nás.</em>
     </h2>
-    <div class="contact-row reveal">
-      <a href="mailto:support@djnstudio.cz" class="btn-primary">Napište nám</a>
-      <a href="#work" class="btn-ghost">Prohlédnout práci</a>
-    </div>
+    <form class="contact-form reveal" action="https://formspree.io/f/xykoaoby" method="POST">
+      <div class="contact-form-row">
+        <div class="contact-form-field">
+          <label for="name">Jméno</label>
+          <input type="text" id="name" name="name" placeholder="Vaše jméno nebo přezdívka" required>
+        </div>
+        <div class="contact-form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="vas@email.cz" required>
+        </div>
+      </div>
+      <div class="contact-form-field">
+        <label for="message">Zpráva</label>
+        <textarea id="message" name="message" rows="5" placeholder="Popište co potřebujete..." required></textarea>
+      </div>
+      <button type="submit" class="contact-form-btn">
+        Odeslat zprávu
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </form>
     <a href="mailto:support@djnstudio.cz" class="contact-mail reveal">support@djnstudio.cz</a>
   </section>
 
@@ -324,6 +343,11 @@
         {cx:.88,cy:.55,rx:.22,ry:.85,angle: .18,rings:8,seed:2.4},
         {cx:.06,cy:.40,rx:.12,ry:.55,angle:-.22,rings:6,seed:4.8},
       ]);
+      initSvg('topo-lightbox', window.innerHeight, [
+        { cx:0.85, cy:0.35, rx:0.28, ry:0.70, angle:-0.18, rings:9, seed:3.3 },
+        { cx:0.08, cy:0.65, rx:0.18, ry:0.55, angle: 0.30, rings:7, seed:6.1 },
+        { cx:0.50, cy:0.95, rx:0.22, ry:0.40, angle: 0.05, rings:6, seed:9.4 },
+      ]);
       initSvg('topo-contact', 500, [
         {cx:.50,cy:.55,rx:.40,ry:.80,angle: .10,rings:11,seed:7.7},
         {cx:.90,cy:.20,rx:.15,ry:.45,angle:-.25,rings: 6,seed:1.9},
@@ -334,5 +358,116 @@
     else requestAnimationFrame(init);
   })();
   </script>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <svg id="topo-lightbox" class="topo-overlay" style="position:fixed;z-index:-1;" preserveAspectRatio="xMidYMid slice"></svg>
+    <div class="lightbox-header">
+      <a href="#" class="nav-logo" onclick="closeGallery()">DJN <span>STUDIO</span></a>
+      <p class="lightbox-title" id="lightbox-title"></p>
+      <div class="lightbox-header-right">
+        <ul class="nav-links" style="position:static;transform:none;">
+          <li><a href="#services" onclick="closeGallery()">Služby</a></li>
+          <li><a href="#work" onclick="closeGallery()">Portfolio</a></li>
+          <li><a href="#contact" onclick="closeGallery()">Kontakt</a></li>
+        </ul>
+        <button class="lightbox-close" onclick="closeGallery()">✕</button>
+      </div>
+    </div>
+    <div class="lightbox-grid" id="lightbox-grid"></div>
+
+    <div class="lightbox-cta">
+      <div class="lightbox-cta-line"></div>
+      <p class="lightbox-cta-text">Zaujal vás tento produkt?</p>
+      <a href="#contact" class="lightbox-cta-btn" onclick="closeGallery()">
+        ZKONTAKTUJTE NÁS
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="lightbox-cta-line"></div>
+    </div>
+
+  </div>
+
+  <!-- ZOOM VIEW -->
+  <div id="lightbox-zoom" onclick="closeZoom()">
+    <button class="zoom-close" onclick="closeZoom()">✕</button>
+    <button class="zoom-nav zoom-prev" onclick="event.stopPropagation(); navZoom(-1)">‹</button>
+    <img id="zoom-img" src="" alt="">
+    <button class="zoom-nav zoom-next" onclick="event.stopPropagation(); navZoom(1)">›</button>
+  </div>
+
+  <script>
+    // ── GALLERY DATA ─────────────────────────────────────────────────
+    const galleries = {
+      salvinia: {
+        title: 'SALVINIA — 3D Modelování',
+        images: [
+          'images/salvinia/cover.png',
+          'images/salvinia/2.png',
+          'images/salvinia/3.png',
+          'images/salvinia/4.png',
+        ]
+      },
+      flowervase: {
+        title: 'Flower Vase — Designer Nábytek',
+        images: [
+          'images/flowervase/cover.png',
+          'images/flowervase/2.png',
+          'images/flowervase/3.png',
+        ]
+      }
+    };
+
+    let currentGallery = null;
+    let zoomIndex = 0;
+
+    function openGallery(key) {
+      const g = galleries[key];
+      if (!g) return;
+      currentGallery = g;
+      document.getElementById('lightbox-title').textContent = g.title;
+
+      // Build grid
+      const grid = document.getElementById('lightbox-grid');
+      grid.innerHTML = g.images.map((src, i) =>
+        `<div class="lightbox-grid-item" onclick="openZoom(${i})">
+          <img src="${src}" alt="${g.title} ${i+1}">
+        </div>`
+      ).join('');
+
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGallery() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function openZoom(i) {
+      zoomIndex = i;
+      document.getElementById('zoom-img').src = currentGallery.images[i];
+      document.getElementById('lightbox-zoom').classList.add('active');
+    }
+
+    function closeZoom() {
+      document.getElementById('lightbox-zoom').classList.remove('active');
+    }
+
+    function navZoom(dir) {
+      const len = currentGallery.images.length;
+      zoomIndex = (zoomIndex + dir + len) % len;
+      document.getElementById('zoom-img').src = currentGallery.images[zoomIndex];
+    }
+
+    document.addEventListener('keydown', function(e) {
+      const zoom = document.getElementById('lightbox-zoom').classList.contains('active');
+      const lb = document.getElementById('lightbox').classList.contains('active');
+      if (e.key === 'Escape') { zoom ? closeZoom() : closeGallery(); }
+      if (zoom && e.key === 'ArrowRight') navZoom(1);
+      if (zoom && e.key === 'ArrowLeft') navZoom(-1);
+    });
+  </script>
+
 </body>
 </html>
