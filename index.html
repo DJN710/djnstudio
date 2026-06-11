@@ -262,7 +262,7 @@
         <div class="collab-card-right">
           <div class="collab-chatbot-label-top">Live náhled — Stabla Chatbot</div>
           <div class="collab-chatbot-frame">
-            <iframe src="https://djn-stabla-chatbot.vercel.app/" allow="microphone" allowtransparency="true"></iframe>
+            <iframe src="https://djn-stabla-chatbot.vercel.app/" allow="microphone" allowtransparency="true" tabindex="-1" loading="lazy"></iframe>
           </div>
         </div>
       </div>
@@ -286,7 +286,7 @@
                 <span class="collab-site-url">dkfg.cz</span>
               </div>
               <div class="collab-site-frame">
-                <iframe src="https://dkfg.cz" loading="lazy" title="DKFG Group" scrolling="yes"></iframe>
+                <iframe src="https://dkfg.cz" loading="lazy" title="DKFG Group" scrolling="yes" tabindex="-1"></iframe>
               </div>
             </div>
           </div>
@@ -306,7 +306,7 @@
                 <span class="collab-site-url">catering-ostrava.cz</span>
               </div>
               <div class="collab-site-frame">
-                <iframe src="https://catering-ostrava.cz" loading="lazy" title="Catering Ostrava" scrolling="yes"></iframe>
+                <iframe src="https://catering-ostrava.cz" loading="lazy" title="Catering Ostrava" scrolling="yes" tabindex="-1"></iframe>
               </div>
             </div>
           </div>
@@ -494,12 +494,19 @@
     @media(max-width:480px){#chat-window{width:calc(100vw - 16px);height:75vh;right:8px;bottom:80px;}}
   </style>
   <div id="chat-bubble">
-    <div id="chat-window"><iframe src="https://djn-stabla-chatbot.vercel.app/" allow="microphone" allowtransparency="true"></iframe></div>
+    <div id="chat-window"><iframe id="chatbot-frame" src="" allow="microphone" allowtransparency="true" tabindex="-1"></iframe></div>
     <button id="chat-toggle" onclick="toggleChat()" title="Otevřít chat">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
     </button>
   </div>
-  <script>function toggleChat(){document.getElementById('chat-window').classList.toggle('open');}</script>
+  <script>var chatLoaded=false;
+    function toggleChat(){
+      if(!chatLoaded){
+        document.getElementById('chatbot-frame').src='https://djn-stabla-chatbot.vercel.app/';
+        chatLoaded=true;
+      }
+      document.getElementById('chat-window').classList.toggle('open');
+    }</script>
 
 </body>
 </html>
